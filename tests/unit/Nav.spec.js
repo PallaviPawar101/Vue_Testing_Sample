@@ -6,11 +6,13 @@ describe("Nav.vue", () => {
     const wrapper = mount(Nav, {
       data() {
         return {
-          isLoggedIn: true,
+          isLoggedIn: false,
         };
       },
     });
-    const profileLink = wrapper.get("#profile");
-    expect(profileLink.text()).toEqual("My Profile");
+    const profileLink = wrapper.find("#profile");
+
+    expect(profileLink.exists()).toBe(false);
+    // expect(profileLink.text()).toEqual("My Profile");
   });
 });
